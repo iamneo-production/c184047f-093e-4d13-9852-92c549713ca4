@@ -14,13 +14,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=8081 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start:movies": "json-server --watch ./src/assets/mock-data/movies.json --port 3001",
-    "start:userCredentials": "json-server --watch ./src/assets/mock-data/userCredentials.json  --port 3002",
-    "start:userDetails": "json-server --watch ./src/assets/mock-data/userDetails.json  --port 3003"
+    "start:movies": "json-server --watch ./src/assets/mock-data/movies.json --port=8080"
   },
   "eslintConfig": {
     "extends": [
