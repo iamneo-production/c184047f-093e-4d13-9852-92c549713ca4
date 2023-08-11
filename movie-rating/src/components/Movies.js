@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllMovies } from "../redux/MovieSlice";
 import Movie from "./Movie"; // Assuming you have a MovieCard component
 import "bootstrap/dist/css/bootstrap.min.css";
+import Sidebar from "./Sidebar";
 
 function Movies() {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ function Movies() {
           style={{ width: "100%" }}
         />
       </div>
+      <Sidebar/>
       <div className="sidebar">
         <h2>Genres</h2>
         <ul style={{ listStyleType: "none", padding: 0 }}>

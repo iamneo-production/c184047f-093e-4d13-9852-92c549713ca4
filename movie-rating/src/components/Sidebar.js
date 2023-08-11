@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setGenreFilter } from "../redux/MovieSlice";
 
 const genres = [
+    "All",
   "Action",
   "Thriller",
   "Comedy",
@@ -10,37 +11,36 @@ const genres = [
   "Sci-Fi",
   "Adventure",
 ];
+const selectedItem = "All";
 
 function Sidebar() {
   const dispatch = useDispatch();
   const genreFilter = useSelector((state) => state.movie.genreFilter);
 
-  const handleFilterChange = (genre) => {
-    dispatch(setGenreFilter(genre));
-  };
+ 
+  const onClick = ()=>{
+
+  }
 
   return (
-    <div className="sidebar">
-      <h2>Genres</h2>
-      <ul>
-        <li
-          className={genreFilter === null ? "active" : ""}
-          onClick={() => handleFilterChange(null)}
-        >
-          All
-        </li>
-        {genres.map((genre) => (
-          <li
-            key={genre}
-            className={genreFilter === genre ? "active" : ""}
-            onClick={() => handleFilterChange(genre)}
-          >
-            {genre}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <React.Fragment>
+        <ul className="list-group">
+          {genres.map((item) => (
+            <li
+              key={item}
+              className={`list-group-item${
+                item === selectedItem ? " active" : ""
+              }`}
+              onClick={() => onClick(item)}
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+      </React.Fragment>
   );
 }
 
 export default Sidebar;
+
+
