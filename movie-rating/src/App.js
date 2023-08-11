@@ -1,21 +1,19 @@
 import './App.css';
-<<<<<<< Updated upstream
-import Loginpage from './components/login/Login';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Movies from "./components/Movies"
 function App() {
   return (
     <div className="App">
-       Movies thammayya appp
-       <Loginpage />
-=======
-import Login from './components/login/Login';
+      <Router>
+        <Routes>
+          {/* <Route  path="/" element={<Navigate to="/movies"/>}></Route>  <MovieDetails /> */}
+          <Route path="/movies" element={<Movies />}></Route>
+          <Route path="/movies/:id" element={<Movies />}></Route>
+        </Routes>
+      </Router>
 
-function App() {
-  return (
-    <div className="App">
-       <Login />
->>>>>>> Stashed changes
     </div>
-    
+
   );
 }
 

@@ -1,62 +1,189 @@
 {
-    "movies": [
-        {
-            "id": 1,
-            "title": "Inception",
-            "year": 2010,
-            "synopsis": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
-            "rating": 4.0,
-            "reviews": [
-                {
-                    "rating": 4.0,
-                    "review": "A complex movie",
-                    "name": "balajimurali",
-                    "email": "balajimurali1999@gmail.com"
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "title": "The Shawshank Redemption",
-            "year": 1994,
-            "synopsis": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-            "rating": 4.5,
-            "reviews": [
-                {
-                    "rating": 4.5,
-                    "review": "A good movie",
-                    "name": "balajimurali",
-                    "email": "balajimurali1999@gmail.com"
-                }
-            ]
-        },
-        {
-            "id": 3,
-            "title": "The Dark Knight",
-            "year": 2008,
-            "synopsis": "When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
-            "rating": 4.0,
-            "reviews": []
-        }
-    ],
-    "userDetails": [
-        {
-            "id": 1,
-            "email": "balajimurali1999@gmail.com",
-            "name": "balajimurali",
-            "isPermitted": true
-        },
-        {
-            "id": 2,
-            "email": "thammayyaarava789@gmail.com",
-            "name": "thammayya",
-            "isPermitted": true
-        }
-    ],
-    "userCredentials": [
-        {
-            "email": "balajimurali1999@gmail.com",
-            "password": "balaji@1234"
-        }
-    ]
+  "movies": [
+
+      {
+          "id": 1,
+          "title": "Inception",
+          "genre":"Thriller",
+          "imagePath": "inception.jpg",
+          "year": 2010,
+          "synopsis": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
+          "rating": 4.0,
+          "reviews": [
+              {
+                  "rating": 4.0,
+                  "review": "A complex movie",
+                  "name": "balajimurali",
+                  "email": "balajimurali1999@gmail.com"
+              }
+          ]
+      },
+      {
+          "id": 2,
+          "title": "Redemption",
+          "genre":"Action",
+          "imagePath": "Shawshank.jpg",
+          "year": 1994,
+          "synopsis": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+          "rating": 4.5,
+          "reviews": [
+              {
+                  "rating": 4.5,
+                  "review": "A good movie",
+                  "name": "balajimurali",
+                  "email": "balajimurali1999@gmail.com"
+              }
+          ]
+      },
+      {
+          "id": 3,
+          "title": "The Dark Knight",
+          "genre":"Action",
+          "imagePath": "darkknight.jpg",
+          "year": 2008,
+          "synopsis": "When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
+          "rating": 4.0,
+          "reviews": []
+      },
+      {
+        "id": 4,
+        "title": "OMG",
+        "genre":"Comedy",
+        "imagePath": "omg.jpg",
+        "year": 2008,
+        "synopsis": "When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
+        "rating": 4.0,
+        "reviews": []
+    },
+    {
+        "id": 5,
+        "title": "The Matrix",
+        "genre": "Science Fiction",
+        "imagePath": "matrix.jpg",
+        "year": 1999,
+        "synopsis": "A computer programmer discovers a mysterious world beneath the digital reality that he thought he knew.",
+        "rating": 4.8,
+        "reviews": [
+          {
+            "rating": 4.8,
+            "review": "Mind-bending and iconic",
+            "name": "moviefan123",
+            "email": "moviefan@example.com"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Jurassic Park",
+        "genre": "Adventure",
+        "imagePath": "jurassicpark.jpg",
+        "year": 1993,
+        "synopsis": "A group of people must survive a deadly island inhabited by dinosaurs.",
+        "rating": 4.3,
+        "reviews": []
+      },
+      {
+        "id": 7,
+        "title": "Gabbar Singh",
+        "genre": "Action",
+        "imagePath": "gabbarsingh.jpg",
+        "year": 2018,
+        "synopsis": "Crazy police officer in a small village confronts a gangstar and closes his case is a single line story of Gabbar singh",
+        "rating": 4.7,
+        "reviews": []
+      },
+      {
+        "id": 8,
+        "title": "Avatar",
+        "genre": "Action",
+        "imagePath": "avatar.jpg",
+        "year": 2009,
+        "synopsis": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+        "rating": 4.5,
+        "reviews": []
+      },
+      {
+        "id": 9,
+        "title": "Forrest Gump",
+        "genre": "Drama",
+        "imagePath": "forrestgump.jpg",
+        "year": 1994,
+        "synopsis": "The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate, and other history unfold through the perspective of an Alabama man with an IQ of 75.",
+        "rating": 4.9,
+        "reviews": []
+      },
+      {
+        "id": 10,
+        "title": "Lord of the Rings",
+        "genre": "Fantasy",
+        "imagePath": "lordofrings.jpg",
+        "year": 2001,
+        "synopsis": "A young hobbit sets out on a journey to destroy a powerful ring and save Middle-earth from the dark lord Sauron.",
+        "rating": 8.8,
+        "reviews": [
+          {
+            "rating": 8.8,
+            "review": "Epic fantasy adventure",
+            "name": "fantasylover",
+            "email": "fantasy@example.com"
+          }
+        ]
+      },
+
+      {
+        "id": 11,
+        "title": "The Knight Rises",
+        "genre": "Action",
+        "imagePath": "darkknightrise.jpg",
+        "year": 2023,
+        "synopsis": "Eight years after the Joker's reign of anarchy, Batman must return to defend Gotham City against the mysterious villain Bane.",
+        "rating": 8.4,
+        "reviews": [
+          {
+            "rating": 8.4,
+            "review": "Epic conclusion to Nolan's Batman trilogy",
+            "name": "batfan",
+            "email": "batfan@example.com"
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "title": "Jailer",
+        "genre":"Thriller",
+        "imagePath": "jailer.jpg",
+        "year": 2010,
+        "synopsis": "Muthuvel Pandian is a strict yet empathetic jailer who sets out to stop a gang from trying to rescue their leader from the prison.",
+        "rating": 4.0,
+        "reviews": [
+            {
+                "rating": 4.0,
+                "review": "A complex movie",
+                "name": "balajimurali",
+                "email": "balajimurali1999@gmail.com"
+            }
+        ]
+    }
+       
+  ],
+  "userDetails":[
+    {
+      "id":1,
+      "email": "balajimurali1999@gmail.com",
+      "name": "balajimurali",
+      "isPermitted": true
+   },
+   {
+    "id":2,
+    "email": "thammayyaarava789@gmail.com",
+    "name": "thammayya",
+    "isPermitted": true
+ }
+  ],
+  "userCredentials": [
+    {
+        "email": "balajimurali1999@gmail.com",
+        "password": "balaji@1234"
+    }
+]
 }
