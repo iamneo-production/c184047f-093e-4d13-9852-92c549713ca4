@@ -1,7 +1,7 @@
 *{
     text-align: center;
 }
-table,tr,td{
+table,td{
     
     border: 1px solid black;
     border-radius: 10px;
@@ -10,4 +10,18 @@ table,tr,td{
 .toggle{
     align-items:end;
     text-align: right;
+}
+.rating {
+    background-color: var(--color-background-100);
+    border-radius: 0.9rem;
+    padding: 2rem 2.4rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+.review{
+    height:500%;
+    width:30%;
 }
