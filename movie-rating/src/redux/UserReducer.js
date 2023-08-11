@@ -1,11 +1,11 @@
 import axios from "axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-export let getUserDetails = createAsyncThunk("/login", (email) => {
+export let getUserDetails = createAsyncThunk("/login", (email, state) => {
     return axios
         .get("http://localhost:8080/userDetails", { params: email })
         .then((res) => res.data)
-        .catch((err) => console.log(err));
+        .catch((err) => { console.log(err); state.user = [] });
 });
 const initialState = {
     user: {},
