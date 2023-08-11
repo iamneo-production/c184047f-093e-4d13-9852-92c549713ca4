@@ -1,0 +1,25 @@
+{
+    "movies": [
+      {
+        "id": 1,
+        "title": "RRR",
+        "rating": 4.9
+      },
+      {
+        "id": 2,
+        "title": "KGF2",
+        "rating": 4.8
+      }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "name": "Surya"
+        }, 
+        {
+            "id": 2,
+            "name": "Pavan"
+        }
+    ]
+  }
+  
