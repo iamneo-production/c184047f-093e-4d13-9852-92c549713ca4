@@ -1,11 +1,14 @@
 import axios from "axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-export let getAllMovies = createAsyncThunk("Movie/getAllMovies", () => {
+export let getAllMovies = createAsyncThunk("Movie/getAllMovies", (state) => {
   return axios
-    .get("http://localhost:8080/movies")
+    .get("http://localhost:8080/api/movies")
     .then((res) => res.data)
-    .catch((err) => console.log(err));
+    .catch((err) =>{
+      console.log(err);
+      state.movies=[];
+    } );
 });
 const initialState = {
   movies: [],
@@ -19,11 +22,13 @@ let MovieSlice = createSlice({
     builder.addCase(getAllMovies.fulfilled, (state, action) => {
       state.movies = action.payload;
     });
-    builder.addCase(getAllMovies.pending, () => {
+    builder.addCase(getAllMovies.pending, (state) => {
       console.log("pending");
+      state.movies=[];
     });
-    builder.addCase(getAllMovies.rejected, () => {
-      console.log("rejected");
+    builder.addCase(getAllMovies.rejected, (state) => {
+      console.log("Rejected");
+      state.movies=[];
     });
   },
 });
