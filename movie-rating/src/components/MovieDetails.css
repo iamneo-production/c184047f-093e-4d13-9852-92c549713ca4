@@ -1,11 +1,6 @@
-*{
+
+.moviedata{
     text-align: center;
-}
-table,td{
-    
-    border: 1px solid black;
-    border-radius: 10px;
-    size: 500px;
 }
 .toggle{
     align-items:end;
@@ -22,6 +17,9 @@ table,td{
     gap: 2.4rem;
   }
 .review{
-    height:500%;
-    width:30%;
+    height:100px;
+    width:900px;
+}
+.feedback{
+    padding:5% 10% 5% 10%;
 }

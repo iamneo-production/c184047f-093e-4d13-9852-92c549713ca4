@@ -50,58 +50,50 @@ export default function MovieDetails(){
     const [isOpen,setOpen]=useState(true);
     const [userRating, setUserRating] = useState("");
     const [userReview,setUserReview]=useState("");
+    const [feedback,setFeedback]=useState(true);
     const movie=movies.at(0);
     function submitReview(){
+
         console.log(userRating+" "+userReview);
-        setUserRating("");
-        setUserReview("");
+        setFeedback(false);
     }
     return (
         <main>
             <button className="toggle" onClick={()=>setOpen(!isOpen)}> Go To Back </button>
             {isOpen &&( <div>
-            <br/><br/>
-            <table className="#table">
-                <tr>
-                    <td>
-                        <img src={movie.poster} alt={`${movie.title} poster`} height="200" width="200" />
-                    </td>
-                    <td>
-                        <p><i>You're feedback !</i>
-                        <div className="rating">
+            <br/>
+                <table>
+                    <tr>
+                        <td>
+                        <img src={movie.poster} alt={`${movie.title} poster`} height="400" width="500" />
+                        </td>
+                        <td className="moviedata">
+                            <div><i><h3>{movie.title}</h3></i></div><br/>
+                            <div><span>Released Year 🗓 </span>
+                                <span>{movie.year}</span></div><br/>
+                            <div>Movie Description : {movie.synopsis}</div><br/>
+                            <div><span>Overall Rating ⭐️ </span>
+                                 <span>{movie.rating}</span></div><br/>
+                        </td>
+                    </tr>
+                </table>
+                <hr/>
+                {feedback ?(
+                <p style={{textAlign:"center"}}><i>You're feedback !</i>
+                    <div className="rating" style={{textAlign:"center"}}>
                         <StarRating maxRating={5} size={24} onSetRating={setUserRating}/>
-                        <input className="review" type="text" placeholder="write your review" value={userReview}
-                            onChange={(e)=>setUserReview(e.target.value)}/>
-                        </div>
-                        <button onClick={submitReview}>submit</button>
-                        </p> 
-                    </td>
-                </tr>
-                <tr>
-                    <td><h3>Movie Name</h3></td>
-                    <td><i><b>{movie.title}</b></i></td>
-                </tr>
-                <tr>
-                    <td><h3>Movie Released Year</h3></td>
-                    <td><span>🗓</span>
-                        <span>{movie.year}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><h3>Movie Description</h3></td>
-                    <td>{movie.synopsis}</td>
-                </tr>
-                <tr>
-                    <td><h3>Overall Rating</h3></td>
-                    <td><span>⭐️</span>
-                        <span>{movie.rating}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><h3>Reviews</h3></td>
-                    <td>{movie.reviews.map(r=><Review r={r}/>)}</td>
-                </tr>
-            </table>
+                        <textarea className="review"  value={userReview} placeholder="write your review"
+                        onChange={(e)=>setUserReview(e.target.value)}></textarea>
+                    </div>
+                    <button onClick={submitReview}>submit</button>
+                </p>):(
+                    <p style={{textAlign:"center"}}>You're feedback submitted</p>
+                )}  
+                <hr/>
+                <p style={{textAlign:"center"}}>
+                <h3>Reviews</h3>
+                {movie.reviews.map(r=><Review r={r}/>)}
+                </p>
             </div>)}
         </main>
     )
@@ -109,9 +101,8 @@ export default function MovieDetails(){
 function Review({r}){
     return(
         <p>
-            <span><b>{r.user}:</b></span>
-            <span>{r.rating}</span><br/><span>{r.review}</span>
-            <br/> <br/> <br/>
+            <span><b>{r.user} &nbsp;&nbsp; </b>review : {r.rating}⭐️  &nbsp;&nbsp; {r.review}</span>
+            <br/> <br/>
         </p>
     )
 }

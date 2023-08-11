@@ -1,5 +1,6 @@
 .App {
-  text-align: center;
+ 
   border: 5px solid royalblue;
-  padding: 5% 20% 10% 20%;
+  padding: 5% 10% 5% 10%;
+  border-color:white;
 }
