@@ -1,13 +1,14 @@
 import { useFormik } from 'formik'
 import * as Yup from "yup"
-import './Login.css'
+import '../styles/login.css'
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux';
+import { getUserDetails } from '../redux/UserReducer';
 export default function Loginpage() {
-    // const navigate = useNavigate();
-    // const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [errorData, setErrorData] = useState('');
     const [passwordVisisblity, setPasswordVisiblity] = useState(false);
     const formikForm = useFormik({
@@ -22,16 +23,17 @@ export default function Loginpage() {
         onSubmit: (values) => {
             (async () => {
 
-                await axios.get('https://ide-fbecccadeabdedfcebceacafcdfdaafcdadabbbdecf.project.examly.io/proxy/8080/userCredentials', { params: values }).then((res) => {
+                await axios.get('http://localhost:8080/userCredentials', { params: values }).then((res) => {
                     if (res.data.length > 0) {
                         const indexVal = res.data.findIndex(ele => {
                             return ele.email === values.emailName && ele.password === values.password;
                         });
                         if (indexVal !== -1) {
-                            // dispatch(getUserDetails({ email: values.emailName }))
+                            dispatch(getUserDetails({ email: values.emailName }));
+                            localStorage.setItem("emailId", values.emailName)
                             console.log(res.data)
                             setErrorData('');
-                            // navigate('/')
+                            navigate('/')
                         } else {
                             setErrorData('Invalid Credentails');
                         }

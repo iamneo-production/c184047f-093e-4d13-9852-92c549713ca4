@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -19,8 +19,7 @@ function MovieCard({ movie }) {
       />
       <CardContent>
         <Typography variant="h6">
-          <Link style={{ textDecoration: "none"}} to={`/movies/${movie.id}/reviews`}>{movie.title}</Link>
-        </Typography>
+        {movie.title}        </Typography>
         <Typography variant="body2" marginTop={2}>
           {movie.year}
         </Typography>
