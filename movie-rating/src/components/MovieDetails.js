@@ -15,7 +15,6 @@ export default function MovieDetails() {
     const [userRating, setUserRating] = useState(0);
     const [userReview, setUserReview] = useState("");
     const [movieDetail, setMovieDetail] = useState({});
-    const [reviewPermission, setReviewPermission] = useState(false);
     const [feedback, setFeedback] = useState({ userAlreadyRated: false, userFeedbackFlag: false });
     const { id } = useParams();
     const userDetail = useSelector((state) => state.user.user)
@@ -33,7 +32,7 @@ export default function MovieDetails() {
                 movieReviews.forEach(ele => {
                     if (ele.email === userDetail[0].email) {
                         ele.rating = userRating;
-                        ele.review = JSON.stringify(userReview)
+                        ele.review = (userReview)
                     }
                 })
                 setMovieDetail((prevState) => ({
@@ -58,20 +57,20 @@ export default function MovieDetails() {
             name: userDetail[0].name,
             email: userDetail[0].email,
             rating: userRating,
-            review: JSON.stringify(userReview)
+            review: (userReview)
         }
         if (ratingSent === true) {
             setMovieDetail((prevState) => ({
                 ...prevState,
                 rating: ratingVal,
-                reviews: movieDetail.reviews.push(userReviewData)
+                reviews: movieDetail.reviews.concat(userReviewData)
             }))
         } else {
 
             setMovieDetail((prevState) => ({
                 ...prevState,
                 rating: userRating,
-                reviews: movieDetail.reviews.push(JSON.stringify(userReviewData))
+                reviews: movieDetail.reviews.concat((userReviewData))
             }))
         }
     }
@@ -88,10 +87,16 @@ export default function MovieDetails() {
                     setFeedback({ userAlreadyRated: true, userFeedbackFlag: true });
                     setUserRating(userReviewData.rating);
                     setUserReview(userReviewData.review);
+                    // const userReviewIndex = res.data.reviews.findIndex(ele => ele.email === emailId);
+                    // if (res.data.reviews.length > 1) {
+                    //     setMovieDetail((prevState) => ({
+                    //         ...prevState,
+                    //         reviews: res.data.reviews.splice(userReviewIndex, 1)[0]
+                    //     }));
+                    // }
                     console.log(userDetail)
 
                 }
-                setReviewPermission(userDetail.isPermitted)
 
             }
         })).catch(err => console.log(err))
@@ -126,7 +131,6 @@ export default function MovieDetails() {
                 </tbody>
             </table>
             <hr />
-            {console.log(reviewPermission)}
             {< div className="user-review-rating">
                 {feedback.userFeedbackFlag === false ? (
                     <>
@@ -164,18 +168,23 @@ export default function MovieDetails() {
                                 }));
                             }}></i>
                         </div>
-                        <div className="feedback-title">     Rating ⭐️ : {userRating}</div>
+                        <div className="feedback-title">  <span className="movie-detail-title">   Rating ⭐️ :</span>   {userRating}</div>
                         <div className="feedback-title">{userReview}</div>
                     </div>
                 )}
             </div>}
             <div className="user-reviews" >
+                <div className="rr-title">Reviews</div>
                 {(movieDetail.reviews && movieDetail.reviews.length > 0) &&
                     (
                         movieDetail.reviews.map((ele, ind) => (
                             <div key={ind} className="review-list">
-                                <span>{ele.name}</span>{ele.rating}
-                                <div className="review-data" key={ind}>{(ele.review)}</div>
+                                <div className="review-list-element"> <span className="movie-detail-title review-list-element"> User  :</span> {ele.name}</div>
+
+                                <div className="review-list-element"><span className="movie-detail-title"> User rating  : </span> {Array.from({ length: ele.rating }, (_, starIndex) => (
+                                    <span key={starIndex}>⭐️</span>
+                                ))}</div>
+                                <div className="review-data" >  {(ele.review)}</div>
                             </div>
                         ))
                     )
