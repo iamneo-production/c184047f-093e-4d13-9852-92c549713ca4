@@ -9,7 +9,8 @@ import { getUserDetails } from '../redux/UserReducer';
 export default function Loginpage() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
+    const textVal = 'text';
+    const passwordVal = 'password';
     const [errorData, setErrorData] = useState('');
     const [passwordVisisblity, setPasswordVisiblity] = useState(false);
     const formikForm = useFormik({
@@ -53,9 +54,9 @@ export default function Loginpage() {
     const handlePasswordVisiblity = (visiblity) => {
         let passwordElement = document.getElementById('password-element')
         if (visiblity === true) {
-            passwordElement.type = 'text';
+            passwordElement.type = textVal;
         } else {
-            passwordElement.type = 'password';
+            passwordElement.type = passwordVal;
         }
         setPasswordVisiblity(visiblity);
     }
