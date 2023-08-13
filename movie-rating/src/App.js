@@ -8,7 +8,7 @@ import Loginpage from './components/Login';
 import { getUserDetails } from "./redux/UserReducer";
 import Header from './components/Header';
 // in package.json if react-scripts are not running with port try PORT=8081 
-//  try "start": "PORT=8081 react-scripts start" in scripts
+//  try "start": "PORT=8081 react-scripts start" in scripts or "react-scripts start --port=8081"
 
 function App() {
   const usersDetails = useSelector((state) => state.user.user);
