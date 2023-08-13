@@ -1,37 +1,39 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Movies from "./components/Movies"
 import MovieDetails from './components/MovieDetails';
 import Loginpage from './components/Login';
 import { getUserDetails } from "./redux/UserReducer";
+import Header from './components/Header';
+// in package.json if react-scripts are not running with port try PORT=8081 
+//  try "start": "PORT=8081 react-scripts start" in scripts
 
 function App() {
-  const [userData, setUserData] = useState();
-  const userDetail = useSelector((state) => state.user.user)
+  const usersDetails = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
-
+  const emailId = localStorage.getItem('emailId');
+  const userDetailRef = useRef(null);
+  console.log(emailId)
   useEffect(() => {
-    const emailId = localStorage.getItem('emailId')
-    if (typeof userDetail === 'object' && Object.keys(userDetail).length === 0) {
-      dispatch(getUserDetails({ email: emailId }));
+    if (typeof usersDetails === 'object' && Object.keys(usersDetails).length === 0) {
+      dispatch(getUserDetails());
+    } else {
+      if (emailId && emailId.length > 0 && usersDetails) {
+        userDetailRef.current = usersDetails.find(ele => ele.email === emailId)
+      }
     }
-    setUserData(userDetail);
-  }, [userDetail, setUserData, userData, dispatch])
+  }, [usersDetails, dispatch, emailId])
   return (
-    <div className="App">
-      <Router>
-        <Routes>
-          {/* <Route  path="/" element={<Navigate to="/movies"/>}></Route>  <MovieDetails /> */}
-          <Route path="/" element={<Movies />}></Route>
-          <Route path="/movies/:id/reviews" element={<MovieDetails canReview={userData?.isPermitted} />}></Route>
-          <Route path="/login" element={<Loginpage />}></Route>
-
-        </Routes>
-      </Router>
-
-    </div>
+    (usersDetails.length > 0 && <div className="App">
+      <Header username={userDetailRef.current}></Header>
+      <Routes>
+        <Route path="/" element={<Movies />}></Route>
+        <Route path= "/movies/:id/reviews" element={emailId && emailId.length > 0 ? <MovieDetails /> : <Loginpage />}></Route>
+        <Route path="/login" element={<Loginpage />}></Route>
+      </Routes>
+    </div>)
 
   );
 }

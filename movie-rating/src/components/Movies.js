@@ -16,6 +16,7 @@ function Movies() {
 
   useEffect(() => {
     dispatch(getAllMovies());
+    
   }, [dispatch]);
 
   const handleSearchChange = (e) => {
@@ -40,7 +41,7 @@ function Movies() {
     : filteredBySearch;
 
   return (
-    <div className="movies-page" style={{ backgroundColor: "rgba(0, 0, 0, 0.9)", width: "100%", minHeight: "100vh" }}>
+    <div className="movies-page" style={{ backgroundColor: "rgba(0, 0, 0, 0.9)", width: "100%", minHeight: "120vh" }}>
   <div style={{ display: "flex", justifyContent: "center", height: "100%" }}>
     <div className="search-bar" style={{ display: "flex", alignItems: "center", width: "60%" }}>
       <Sidebar value={selectedGenre} onChange={handleFilterChange} />

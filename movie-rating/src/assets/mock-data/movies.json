@@ -7,13 +7,19 @@
       "imagePath": "inception.jpg",
       "year": 2010,
       "synopsis": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
-      "rating": 4.0,
+      "rating": 5,
       "reviews": [
         {
           "rating": 4,
           "review": "A complex movie",
           "name": "balajimurali",
           "email": "balajimurali1999@gmail.com"
+        },
+        {
+          "name": "john",
+          "email": "john@gmail.com",
+          "rating": 5,
+          "review": "aef"
         }
       ]
     },
@@ -24,13 +30,25 @@
       "imagePath": "Shawshank.jpg",
       "year": 1994,
       "synopsis": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-      "rating": 4,
+      "rating": "4.7",
       "reviews": [
         {
           "rating": 4,
-          "review": "A good movie",
+          "review": "A good meovie",
           "name": "balajimurali",
           "email": "balajimurali1999@gmail.com"
+        },
+        {
+          "name": "thammayya",
+          "email": "thammayyaarava789@gmail.com",
+          "rating": 5,
+          "review": "seg"
+        },
+        {
+          "name": "john",
+          "email": "john@gmail.com",
+          "rating": 5,
+          "review": "aef"
         }
       ]
     },
@@ -41,8 +59,21 @@
       "imagePath": "darkknight.jpg",
       "year": 2008,
       "synopsis": "When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
-      "rating": 4.0,
-      "reviews": []
+      "rating": 5,
+      "reviews": [
+        {
+          "name": "john",
+          "email": "john@gmail.com",
+          "rating": 5,
+          "review": "ef"
+        },
+        {
+          "name": "balajimurali",
+          "email": "balajimurali1999@gmail.com",
+          "rating": 5,
+          "review": "Great"
+        }
+      ]
     },
     {
       "id": 4,
@@ -51,8 +82,15 @@
       "imagePath": "omg.jpg",
       "year": 2008,
       "synopsis": "When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
-      "rating": 4.0,
-      "reviews": []
+      "rating": 5,
+      "reviews": [
+        {
+          "name": "balajimurali",
+          "email": "balajimurali1999@gmail.com",
+          "rating": 5,
+          "review": "Good movie"
+        }
+      ]
     },
     {
       "id": 5,
@@ -62,14 +100,7 @@
       "year": 1999,
       "synopsis": "A computer programmer discovers a mysterious world beneath the digital reality that he thought he knew.",
       "rating": 4.8,
-      "reviews": [
-        {
-          "rating": 4.8,
-          "review": "Mind-bending and iconic",
-          "name": "moviefan123",
-          "email": "moviefan@example.com"
-        }
-      ]
+      "reviews": []
     },
     {
       "id": 6,
@@ -119,14 +150,7 @@
       "year": 2001,
       "synopsis": "A young hobbit sets out on a journey to destroy a powerful ring and save Middle-earth from the dark lord Sauron.",
       "rating": 8.8,
-      "reviews": [
-        {
-          "rating": 8.8,
-          "review": "Epic fantasy adventure",
-          "name": "fantasylover",
-          "email": "fantasy@example.com"
-        }
-      ]
+      "reviews": []
     },
     {
       "id": 11,
@@ -152,10 +176,10 @@
       "imagePath": "jailer.jpg",
       "year": 2010,
       "synopsis": "Muthuvel Pandian is a strict yet empathetic jailer who sets out to stop a gang from trying to rescue their leader from the prison.",
-      "rating": 4.0,
+      "rating": 4,
       "reviews": [
         {
-          "rating": 4.0,
+          "rating": 4,
           "review": "From the get-go, Jailer announces its intentions: it's an unapologetic action extravaganza. Rajnikanth, in his signature style, brings his larger-than-life presence to the screen, ensuring there's never a dull moment. The opening scenes had me wondering if I was in for a déjà vu of Vikram, but just as I thought I had the movie pegged, it pulled a genre switch that left me both impressed and intrigued.",
           "name": "balajimurali",
           "email": "balajimurali1999@gmail.com"
@@ -190,6 +214,10 @@
     },
     {
       "email": "john@gmail.com",
+      "password": "john@1234"
+    },
+    {
+      "email": "thammayyaarava789@gmail.com",
       "password": "john@1234"
     }
   ]

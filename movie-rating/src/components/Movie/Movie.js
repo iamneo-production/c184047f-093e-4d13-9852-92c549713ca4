@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import "./Movie.css";
 
 const Movie = (props) => {
@@ -6,7 +5,7 @@ const Movie = (props) => {
     return (
         <div className='card'>
             <h3>Name: {movie.title}</h3>
-            <p>Rating: {rating}</p>
+            <p>Rating: {movie.rating}</p>
         </div>
     );
 };

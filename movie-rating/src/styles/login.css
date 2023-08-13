@@ -2,9 +2,17 @@
 
 .login-container {
     display: block;
+    background-color: rgba(0, 0, 0, 0.9);
     padding-top: 5rem;
     padding-left: 30rem;
     padding-right: 30rem;
+    min-height: 100vh;
+}
+
+form {
+    background-color: rgba(0, 0, 0,0.1);
+    padding: 20px 20px 20px 20px;
+    border:1px solid #21262d;
 }
 
 .login-input-element {
@@ -12,7 +20,15 @@
     height: 18px;
     font-family: karla;
     font-size: 14px;
-    padding: 10px 10px 10px 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background-color: rgb(61, 58, 58);
+    padding: 15px 15px 15px 15px;
+    border: none
+}
+
+.login-input-element::placeholder {
+    color: #fff;
 }
 
 .login-error-message {
@@ -25,13 +41,12 @@
     margin-bottom: -12px;
 }
 
-.login-page-buttons {
-    color: #fff;
-    background-color: #07376e;
-    border: none;
-    height: 48px;
+.login-submit {
+    align-items: center;
+    display: flex;
+    justify-content: center;
     margin-top: 10px;
-    margin-left: 10px;
+    margin-left: 60px;
     cursor: pointer;
 }
 
@@ -39,8 +54,11 @@
     font-size: 25px;
     text-align: justify;
     text-align: center;
+    font-weight: 600;
+
     font-family: karla;
-    padding: 10px 57px 20px 20px;
+    padding: 10px 57px 20px 30px;
+    color: #fff;
 }
 
 .error-container {

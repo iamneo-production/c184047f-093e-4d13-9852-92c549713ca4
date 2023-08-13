@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
+ // if not working try https://ide-fbecccadeabdedfcebceacafcdfdaafcdadabbbdecf.project.examly.io/proxy/8080
 export let getAllMovies = createAsyncThunk("Movie/getAllMovies", (state) => {
   return axios
     .get("http://localhost:8080/api/movies")

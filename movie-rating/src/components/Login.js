@@ -9,6 +9,7 @@ import { getUserDetails } from '../redux/UserReducer';
 export default function Loginpage() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
     const [errorData, setErrorData] = useState('');
     const [passwordVisisblity, setPasswordVisiblity] = useState(false);
     const formikForm = useFormik({
@@ -22,16 +23,16 @@ export default function Loginpage() {
         }),
         onSubmit: (values) => {
             (async () => {
-
+                // if not working https://ide-fbecccadeabdedfcebceacafcdfdaafcdadabbbdecf.project.examly.io/proxy/8080
                 await axios.get('http://localhost:8080/userCredentials', { params: values }).then((res) => {
                     if (res.data.length > 0) {
                         const indexVal = res.data.findIndex(ele => {
                             return ele.email === values.emailName && ele.password === values.password;
                         });
                         if (indexVal !== -1) {
+                            window.location.reload()
                             dispatch(getUserDetails({ email: values.emailName }));
-                            localStorage.setItem("emailId", values.emailName)
-                            console.log(res.data)
+                            localStorage.setItem('emailId', values.emailName)
                             setErrorData('');
                             navigate('/')
                         } else {
@@ -74,7 +75,7 @@ export default function Loginpage() {
                 </input><i id='show-password' className={formikForm.values.password.length > 0 && passwordVisisblity ? 'bi bi-eye-slash-fill' : 'bi bi-eye-fill'}
                     onMouseUp={() => { handlePasswordVisiblity(false) }} onMouseDown={() => { handlePasswordVisiblity(true) }}></i>
                 <div className={formikForm.touched.password && formikForm.errors.password ? 'login-error-message' : ''}>{formikForm.touched.password && formikForm.errors.password ? formikForm.errors.password : ''}</div><br />
-                <button type='submit' className=' login-input-element login-page-buttons'>Submit</button> <br />
+                <button type='submit' className='button-class submit-button login-submit'>Submit</button> <br />
 
             </form >
 

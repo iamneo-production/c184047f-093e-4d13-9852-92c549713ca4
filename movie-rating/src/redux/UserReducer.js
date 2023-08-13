@@ -1,9 +1,9 @@
 import axios from "axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
-export let getUserDetails = createAsyncThunk("/login", (email, state) => {
+// if not working  try https://ide-fbecccadeabdedfcebceacafcdfdaafcdadabbbdecf.project.examly.io/proxy/8080
+export let getUserDetails = createAsyncThunk("/login", (state) => {
     return axios
-        .get("http://localhost:8080/userDetails", { params: email })
+        .get("http://localhost:8080/userDetails",)
         .then((res) => res.data)
         .catch((err) => { console.log(err); state.user = [] });
 });
@@ -22,6 +22,7 @@ let UserReducer = createSlice({
         });
         builder.addCase(getUserDetails.pending, () => {
             console.log("pending");
+
         });
         builder.addCase(getUserDetails.rejected, () => {
             console.log("rejected");
