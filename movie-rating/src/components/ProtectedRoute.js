@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 
 const ProtectedRoute = ({ path, element, isAuthenticated }) => {
-    console.log(isAuthenticated)
     return isAuthenticated ? (
         <Routes>
             <Route path={path} element={element} /></Routes>

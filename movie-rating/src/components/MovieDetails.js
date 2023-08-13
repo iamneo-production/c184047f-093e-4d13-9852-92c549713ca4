@@ -44,7 +44,7 @@ export default function MovieDetails() {
                 });
                 const newTotalRating = totalRating + userRating;
                 const newTotalReviews = movieReviews.length + 1;
-                const updatedRating = (newTotalRating / newTotalReviews);
+                const updatedRating = (newTotalRating / newTotalReviews); 
                 movieDetail[`rating`] = updatedRating.toFixed(1)
                 movieDetailObjGenerator(userRating, true);
             }
@@ -82,15 +82,11 @@ export default function MovieDetails() {
             await axios.get(`http://localhost:8080/api/movies/${id}`).then((res => {
                 setMovieDetail(res.data)
                 if (res.data.reviews && res.data.reviews.length > 0) {
-                    console.log(emailId)
-
                     const userReviewData = res.data.reviews.find(ele => ele.email === emailId);
                     if (userReviewData && Object.keys(userReviewData).length > 0) {
-                        console.log(userReviewData)
                         setFeedback({ userAlreadyRated: true, userFeedbackFlag: true });
                         setUserRating(userReviewData.rating);
                         setUserReview(userReviewData.review);
-                        console.log(userDetail)
                     }
                 }
             })).catch(err => console.log(err))

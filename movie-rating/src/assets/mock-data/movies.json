@@ -14,12 +14,6 @@
           "review": "A complex movie",
           "name": "balajimurali",
           "email": "balajimurali1999@gmail.com"
-        },
-        {
-          "name": "john",
-          "email": "john@gmail.com",
-          "rating": 5,
-          "review": "aef"
         }
       ]
     },
@@ -30,25 +24,13 @@
       "imagePath": "Shawshank.jpg",
       "year": 1994,
       "synopsis": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-      "rating": "4.7",
+      "rating": 4,
       "reviews": [
         {
           "rating": 4,
           "review": "A good meovie",
           "name": "balajimurali",
           "email": "balajimurali1999@gmail.com"
-        },
-        {
-          "name": "thammayya",
-          "email": "thammayyaarava789@gmail.com",
-          "rating": 5,
-          "review": "seg"
-        },
-        {
-          "name": "john",
-          "email": "john@gmail.com",
-          "rating": 5,
-          "review": "aef"
         }
       ]
     },
@@ -66,12 +48,6 @@
           "email": "john@gmail.com",
           "rating": 5,
           "review": "ef"
-        },
-        {
-          "name": "balajimurali",
-          "email": "balajimurali1999@gmail.com",
-          "rating": 5,
-          "review": "Great"
         }
       ]
     },
@@ -202,8 +178,20 @@
     },
     {
       "id": "3",
-      "email": "john@gmail.com",
-      "name": "john",
+      "email": "surya@gmail.com",
+      "name": "surya",
+      "isPermitted": true
+    },
+    {
+      "id": "4",
+      "email": "saisudha@gmail.com",
+      "name": "sai sudha",
+      "isPermitted": true
+    },
+    {
+      "id": "5",
+      "email": "durgaprasad@gmail.com",
+      "name": "durga prasad",
       "isPermitted": true
     }
   ],
@@ -213,12 +201,21 @@
       "password": "balaji@1234"
     },
     {
-      "email": "john@gmail.com",
-      "password": "john@1234"
+      "email": "surya@gmail.com",
+      "password": "surya@1234"
     },
     {
       "email": "thammayyaarava789@gmail.com",
-      "password": "john@1234"
+      "password": "thammayyaarava@1234"
+    },
+    {
+      "email": "saisudha@gmail.com",
+      "password": "saisudha@1234"
+    },
+    {
+      "email": "durgaprasad@gmail.com",
+      "password": "durgaprasad@1234"
     }
+
   ]
 }

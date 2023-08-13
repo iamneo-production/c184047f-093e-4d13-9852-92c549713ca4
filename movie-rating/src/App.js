@@ -15,7 +15,6 @@ function App() {
   const dispatch = useDispatch();
   const emailId = localStorage.getItem('emailId');
   const userDetailRef = useRef(null);
-  console.log(emailId)
   useEffect(() => {
     if (typeof usersDetails === 'object' && Object.keys(usersDetails).length === 0) {
       dispatch(getUserDetails());
