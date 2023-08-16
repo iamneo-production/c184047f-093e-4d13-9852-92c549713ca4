@@ -29,7 +29,9 @@ export default function Header() {
         <div className='logout' onClick={() => {
             localStorage.clear();
             setUserName(null);
-            navigate('/login')
+            if(location.pathname !== '/') {
+                navigate('/login')
+            }
         }}>Logout</div>
     </div> :
         <div className="header-container">
