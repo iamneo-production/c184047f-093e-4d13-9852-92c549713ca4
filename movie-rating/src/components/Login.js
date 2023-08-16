@@ -4,16 +4,13 @@ import '../styles/login.css'
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { getUserDetails } from '../redux/UserReducer';
-export default function Loginpage() {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
+  export default function Loginpage() {
+     const navigate = useNavigate();
     const textVal = 'text';
     const passwordVal = 'password';
     const [errorData, setErrorData] = useState('');
     const [passwordVisisblity, setPasswordVisiblity] = useState(false);
-    const formikForm = useFormik({
+     const formikForm = useFormik({
         initialValues: {
             emailName: "",
             password: ""
@@ -31,11 +28,10 @@ export default function Loginpage() {
                             return ele.email === values.emailName && ele.password === values.password;
                         });
                         if (indexVal !== -1) {
-                            window.location.reload()
-                            dispatch(getUserDetails({ email: values.emailName }));
+                             navigate('/');
+                        //   window.location.reload();
+                             setErrorData('');
                             localStorage.setItem('emailId', values.emailName)
-                            setErrorData('');
-                            navigate('/')
                         } else {
                             setErrorData('Invalid Credentails');
                         }

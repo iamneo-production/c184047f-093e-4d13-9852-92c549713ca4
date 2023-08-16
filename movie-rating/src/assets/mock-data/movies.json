@@ -40,9 +40,21 @@
       "genre": "Action",
       "imagePath": "darkknight.jpg",
       "year": 2008,
-      "synopsis": "When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
-      "rating": 5,
+      "synopsis": "When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on t",
+      "rating": 3.5,
       "reviews": [
+        {
+          "name": "balajimurali",
+          "email": "balajimurali1999@gmail.com",
+          "rating": 5,
+          "review": "eg"
+        },
+        {
+          "name": "surya",
+          "email": "surya@gmail.com",
+          "rating": 2,
+          "review": "wrgef"
+        }
       ]
     },
     {
@@ -89,8 +101,27 @@
       "imagePath": "gabbarsingh.jpg",
       "year": 2018,
       "synopsis": "Crazy police officer in a small village confronts a gangstar and closes his case is a single line story of Gabbar singh",
-      "rating": 4.7,
-      "reviews": []
+      "rating": 4,
+      "reviews": [
+        {
+          "name": "durga prasad",
+          "email": "durgaprasad@gmail.com",
+          "rating": 4,
+          "review": "Fantastic commercial movie without any remake influences."
+        },
+        {
+          "name": "balajimurali",
+          "email": "balajimurali1999@gmail.com",
+          "rating": 5,
+          "review": "Complete awesomeness in every frame. An experience as a whole, is truly fulfilling for a movie buff!! Must watch, better than the original, well adapted to Telugu audience sensibilities.\nPowerstar rocks"
+        },
+        {
+          "name": "surya",
+          "email": "surya@gmail.com",
+          "rating": 3,
+          "review": "Great fun movie."
+        }
+      ]
     },
     {
       "id": 8,
@@ -146,13 +177,19 @@
       "imagePath": "jailer.jpg",
       "year": 2010,
       "synopsis": "Muthuvel Pandian is a strict yet empathetic jailer who sets out to stop a gang from trying to rescue their leader from the prison.",
-      "rating": 4,
+      "rating": 4.5,
       "reviews": [
         {
           "rating": 4,
           "review": "From the get-go, Jailer announces its intentions: it's an unapologetic action extravaganza. Rajnikanth, in his signature style, brings his larger-than-life presence to the screen, ensuring there's never a dull moment. The opening scenes had me wondering if I was in for a déjà vu of Vikram, but just as I thought I had the movie pegged, it pulled a genre switch that left me both impressed and intrigued.",
           "name": "balajimurali",
           "email": "balajimurali1999@gmail.com"
+        },
+        {
+          "name": "durga prasad",
+          "email": "durgaprasad@gmail.com",
+          "rating": 5,
+          "review": "Great movie . "
         }
       ]
     }
@@ -209,7 +246,14 @@
     {
       "email": "durgaprasad@gmail.com",
       "password": "durgaprasad@1234"
+    },
+    {
+      "email": "saisudha@gmail.com",
+      "password": "saisudha@1234"
+    },
+    {
+      "email": "durgaprasad@gmail.com",
+      "password": "durgaprasad@1234"
     }
-
   ]
 }

@@ -146,3 +146,6 @@
     cursor: pointer;
     margin-left: 10px;
 }
+.no-reviews {
+    color: #fff;
+}

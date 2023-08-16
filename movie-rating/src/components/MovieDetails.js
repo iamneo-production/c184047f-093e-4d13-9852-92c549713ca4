@@ -22,61 +22,92 @@ export default function MovieDetails() {
     const userDetail = useSelector((state) => state.user.user)
 
     function submitReview() {
-        let updatedMovieDetail = {};
-        if (movieDetail.reviews && movieDetail.reviews.length > 0) {
-            let totalRating = 0;
-            const movieReviews = movieDetail.reviews;
+        // let updatedMovieDetail = {};
+        // if (movieDetail.reviews && movieDetail.reviews.length > 0) {
+        //     let totalRating = 0;
+        //     const movieReviews = movieDetail.reviews;
 
-            if (feedback.userAlreadyRated) {
-                movieReviews.forEach(ele => {
-                    if (ele.email === emailId) {
-                        ele.rating = userRating;
-                        ele.review = (userReview)
-                    } else {
-                        totalRating = totalRating + ele.rating;
-                    }
-                })
-                let updatedRating = (totalRating + userRating) / (movieDetail.reviews.length);
-                movieDetail[`rating`] = updatedRating.toFixed(1);
-            } else {
-                movieReviews.forEach(ele => {
-                    totalRating = totalRating + ele.rating;
-                });
-                const newTotalRating = totalRating + userRating;
-                const newTotalReviews = movieReviews.length + 1;
-                const updatedRating = (newTotalRating / newTotalReviews); 
-                movieDetail[`rating`] = updatedRating.toFixed(1)
-                movieDetailObjGenerator(userRating, true);
-            }
-            updatedMovieDetail = movieDetail;
+        //     if (feedback.userAlreadyRated) {
+        //         movieReviews.forEach(ele => {
+        //             if (ele.email === emailId) {
+        //                 ele.rating = userRating;
+        //                 ele.review = (userReview)
+        //             } else {
+        //                 totalRating = totalRating + ele.rating;
+        //             }
+        //         })
+        //         let updatedRating = (totalRating + userRating) / (movieDetail.reviews.length);
+        //         movieDetail[`rating`] = updatedRating.toFixed(1);
+        //     } else {
+        //         movieReviews.forEach(ele => {
+        //             totalRating = totalRating + ele.rating;
+        //         });
+        //         const newTotalRating = totalRating + userRating;
+        //         const newTotalReviews = movieReviews.length + 1;
+        //         const updatedRating = (newTotalRating / newTotalReviews); 
+        //         movieDetail[`rating`] = updatedRating.toFixed(1)
+        //         movieDetailObjGenerator(userRating, true);
+        //     }
+        //     updatedMovieDetail = movieDetail;
+        // }
+        // else {
+        //     movieDetailObjGenerator();
+        //     updatedMovieDetail = movieDetail;
+        // }
+        // if not working try https://ide-fbecccadeabdedfcebceacafcdfdaafcdadabbbdecf.project.examly.io/proxy/8080
+        if (feedback.userAlreadyRated === false) {
+            const userReviewData =
+            {
+                name: userDetail.find(ele => ele.email === emailId).name,
+                email: emailId,
+                rating: userRating,
+                review: (userReview)
+            }; console.log('hi')
+            movieDetail.reviews.push(userReviewData)
+            console.log(movieDetail.reviews)
+        } else if (feedback.userAlreadyRated === true && movieDetail.reviews.length > 0) {
+            movieDetail.reviews.forEach(ele => {
+                if (ele.email === emailId) {
+                    ele.rating = userRating;
+                    ele.review = userReview
+                }
+            })
+        };
+        console.log(movieDetail.reviews)
+        if (movieDetail.reviews.length > 0) {
+            let totalRatingVal = 0;
+            movieDetail.reviews.forEach(ele => {
+                totalRatingVal = totalRatingVal + ele.rating;
+            });
+            const ratingVal = totalRatingVal / movieDetail.reviews.length;
+            movieDetail.rating = ratingVal;
+        } else {
+            MovieDetails.rating = userRating;
+
         }
-        else {
-            movieDetailObjGenerator();
-            updatedMovieDetail = movieDetail;
-        }// if not working try https://ide-fbecccadeabdedfcebceacafcdfdaafcdadabbbdecf.project.examly.io/proxy/8080
-        axios.put(`http://localhost:8080/api/movies/${id}`, updatedMovieDetail).then(res => {
+        axios.put(`http://localhost:8080/api/movies/${id}`, movieDetail).then(res => {
             setMovieDetail(res.data)
         }).catch(err => { console.log(err) })
         setFeedback({ userAlreadyRated: true, userFeedbackFlag: true });
     }
-    const movieDetailObjGenerator = (ratingVal, ratingSent = false) => {
-        const userName = userDetail.find(ele => ele.email === emailId).name
-        const userReviewData =
-        {
-            name: userName,
-            email: emailId,
-            rating: userRating,
-            review: (userReview)
-        }
-        if (ratingSent === true) {
-            movieDetail[`rating`] = ratingVal;
-            movieDetail[`reviews`] = movieDetail.reviews.concat(userReviewData)
+    // const movieDetailObjGenerator = (ratingVal, ratingSent = false) => {
+    //     const userName = userDetail.find(ele => ele.email === emailId).name
+    //     const userReviewData =
+    //     {
+    //         name: userName,
+    //         email: emailId,
+    //         rating: userRating,
+    //         review: (userReview)
+    //     }
+    //     if (ratingSent === true) {
+    //         movieDetail[`rating`] = ratingVal;
+    //         movieDetail[`reviews`] = movieDetail.reviews.concat(userReviewData)
 
-        } else {
-            movieDetail[`rating`] = userRating;
-            movieDetail[`reviews`] = movieDetail.reviews.concat(userReviewData)
-        }
-    }
+    //     } else {
+    //         movieDetail[`rating`] = userRating;
+    //         movieDetail[`reviews`] = movieDetail.reviews.concat(userReviewData)
+    //     }
+    // }
     useEffect(() => {
         (async () => { // if not working try https://ide-fbecccadeabdedfcebceacafcdfdaafcdadabbbdecf.project.examly.io/proxy/8080
             await axios.get(`http://localhost:8080/api/movies/${id}`).then((res => {
@@ -173,29 +204,32 @@ export default function MovieDetails() {
                     </div>
                 )}
             </div>}
-            {(movieDetail.reviews && movieDetail.reviews.length > 0) && <div className="user-reviews" >
-                {<div className="rr-title">Reviews</div>}
-                {
-                    (
-                        movieDetail.reviews.map((ele, ind) => (
-                            ele.email !== emailId && (
-                                <div key={ind} className="review-list">
-                                    <div className="review-list-element">
-                                        <span className="movie-detail-title review-list-element"> User  :</span> {ele.name}
+            {(movieDetail.reviews && movieDetail.reviews.length > 0) ?
+                <div className="user-reviews" >
+                    {<div className="rr-title">Reviews</div>}
+                    {
+                        (
+                            movieDetail.reviews.map((ele, ind) => (
+                                ele.email !== emailId && (
+                                    <div key={ind} className="review-list">
+                                        <div className="review-list-element">
+                                            <span className="movie-detail-title review-list-element"> User  :</span> {ele.name}
+                                        </div>
+                                        <div className="review-list-element">
+                                            <span className="movie-detail-title"> User rating  : </span> {Array.from({ length: ele.rating }, (_, starIndex) => (
+                                                <span key={starIndex}>⭐️</span>
+                                            ))}
+                                        </div>
+                                        <div className="review-data">{ele.review} </div>
                                     </div>
-                                    <div className="review-list-element">
-                                        <span className="movie-detail-title"> User rating  : </span> {Array.from({ length: ele.rating }, (_, starIndex) => (
-                                            <span key={starIndex}>⭐️</span>
-                                        ))}
-                                    </div>
-                                    <div className="review-data">{ele.review} </div>
-                                </div>
-                            )
-                        ))
-                    )
+                                )
+                            ))
+                        )
 
-                }
-            </div>}
+                    }
+                </div> : <div className="user-reviews" > <div className="rr-title">Reviews</div>
+                   <div className="no-reviews"> No reviews yet. </div>
+                </div>}
         </div >)
     )
 }
