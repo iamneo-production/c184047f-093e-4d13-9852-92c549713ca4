@@ -7,7 +7,7 @@
       "imagePath": "inception.jpg",
       "year": 2010,
       "synopsis": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
-      "rating": 5,
+      "rating": 4,
       "reviews": [
         {
           "rating": 4,
@@ -87,8 +87,15 @@
       "imagePath": "matrix.jpg",
       "year": 1999,
       "synopsis": "A computer programmer discovers a mysterious world beneath the digital reality that he thought he knew.",
-      "rating": 4.8,
-      "reviews": []
+      "rating": 4,
+      "reviews": [
+        {
+          "name": "balajimurali",
+          "email": "balajimurali1999@gmail.com",
+          "rating": 4,
+          "review": "Great movie"
+        }
+      ]
     },
     {
       "id": 6,
@@ -97,7 +104,7 @@
       "imagePath": "jurassicpark.jpg",
       "year": 1993,
       "synopsis": "A group of people must survive a deadly island inhabited by dinosaurs.",
-      "rating": 4.3,
+      "rating": 4,
       "reviews": []
     },
     {
@@ -136,7 +143,7 @@
       "imagePath": "avatar.jpg",
       "year": 2009,
       "synopsis": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
-      "rating": 4.5,
+      "rating": 0,
       "reviews": []
     },
     {
@@ -146,7 +153,7 @@
       "imagePath": "forrestgump.jpg",
       "year": 1994,
       "synopsis": "The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate, and other history unfold through the perspective of an Alabama man with an IQ of 75.",
-      "rating": 4.9,
+      "rating": 0,
       "reviews": []
     },
     {
@@ -156,7 +163,7 @@
       "imagePath": "lordofrings.jpg",
       "year": 2001,
       "synopsis": "A young hobbit sets out on a journey to destroy a powerful ring and save Middle-earth from the dark lord Sauron.",
-      "rating": 8.8,
+      "rating": 0,
       "reviews": []
     },
     {
@@ -166,15 +173,8 @@
       "imagePath": "darkknightrise.jpg",
       "year": 2023,
       "synopsis": "Eight years after the Joker's reign of anarchy, Batman must return to defend Gotham City against the mysterious villain Bane.",
-      "rating": 8.4,
-      "reviews": [
-        {
-          "rating": 8.4,
-          "review": "Epic conclusion to Nolan's Batman trilogy",
-          "name": "batfan",
-          "email": "batfan@example.com"
-        }
-      ]
+      "rating": 4,
+      "reviews": []
     },
     {
       "id": 12,
@@ -234,7 +234,7 @@
   ],
   "userCredentials": [
     {
-      "email": "balajimurali1999@gmail.com",
+      "email": "balaji@gmail.com",
       "password": "balaji@1234"
     },
     {
@@ -244,14 +244,6 @@
     {
       "email": "thammayyaarava789@gmail.com",
       "password": "thammayyaarava@1234"
-    },
-    {
-      "email": "saisudha@gmail.com",
-      "password": "saisudha@1234"
-    },
-    {
-      "email": "durgaprasad@gmail.com",
-      "password": "durgaprasad@1234"
     },
     {
       "email": "saisudha@gmail.com",

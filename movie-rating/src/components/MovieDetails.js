@@ -2,16 +2,12 @@ import "./MovieDetails.css";
 import { useState, useEffect } from "react";
 import StarRating from "./StarRating.js"
 import { useSelector } from "react-redux";
-// import { getAllMovies } from "../redux/MovieSlice";
-// import { getUserDetails } from "../redux/UserReducer";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import CardMedia from "@mui/material/CardMedia";
 
-// import { getAllMovies } from "../redux/MovieSlice";
 
 export default function MovieDetails() {
-    // const movies = useSelector((state) => state.movie.movies);
     const emailId = localStorage.getItem('emailId');
 
     const [userRating, setUserRating] = useState(0);
@@ -22,39 +18,6 @@ export default function MovieDetails() {
     const userDetail = useSelector((state) => state.user.user)
 
     function submitReview() {
-        // let updatedMovieDetail = {};
-        // if (movieDetail.reviews && movieDetail.reviews.length > 0) {
-        //     let totalRating = 0;
-        //     const movieReviews = movieDetail.reviews;
-
-        //     if (feedback.userAlreadyRated) {
-        //         movieReviews.forEach(ele => {
-        //             if (ele.email === emailId) {
-        //                 ele.rating = userRating;
-        //                 ele.review = (userReview)
-        //             } else {
-        //                 totalRating = totalRating + ele.rating;
-        //             }
-        //         })
-        //         let updatedRating = (totalRating + userRating) / (movieDetail.reviews.length);
-        //         movieDetail[`rating`] = updatedRating.toFixed(1);
-        //     } else {
-        //         movieReviews.forEach(ele => {
-        //             totalRating = totalRating + ele.rating;
-        //         });
-        //         const newTotalRating = totalRating + userRating;
-        //         const newTotalReviews = movieReviews.length + 1;
-        //         const updatedRating = (newTotalRating / newTotalReviews); 
-        //         movieDetail[`rating`] = updatedRating.toFixed(1)
-        //         movieDetailObjGenerator(userRating, true);
-        //     }
-        //     updatedMovieDetail = movieDetail;
-        // }
-        // else {
-        //     movieDetailObjGenerator();
-        //     updatedMovieDetail = movieDetail;
-        // }
-        // if not working try https://ide-fbecccadeabdedfcebceacafcdfdaafcdadabbbdecf.project.examly.io/proxy/8080
         if (feedback.userAlreadyRated === false) {
             const userReviewData =
             {
@@ -90,24 +53,6 @@ export default function MovieDetails() {
         }).catch(err => { console.log(err) })
         setFeedback({ userAlreadyRated: true, userFeedbackFlag: true });
     }
-    // const movieDetailObjGenerator = (ratingVal, ratingSent = false) => {
-    //     const userName = userDetail.find(ele => ele.email === emailId).name
-    //     const userReviewData =
-    //     {
-    //         name: userName,
-    //         email: emailId,
-    //         rating: userRating,
-    //         review: (userReview)
-    //     }
-    //     if (ratingSent === true) {
-    //         movieDetail[`rating`] = ratingVal;
-    //         movieDetail[`reviews`] = movieDetail.reviews.concat(userReviewData)
-
-    //     } else {
-    //         movieDetail[`rating`] = userRating;
-    //         movieDetail[`reviews`] = movieDetail.reviews.concat(userReviewData)
-    //     }
-    // }
     useEffect(() => {
         (async () => { // if not working try https://ide-fbecccadeabdedfcebceacafcdfdaafcdadabbbdecf.project.examly.io/proxy/8080
             await axios.get(`http://localhost:8080/api/movies/${id}`).then((res => {
@@ -124,9 +69,7 @@ export default function MovieDetails() {
         }
         )();
     }, [id, userDetail, emailId]);
-
-    // const movieId = parseInt(id);
-    // const movieDetailData = movies.find(movie => movie.id === movieId);
+ const noReviewsTag = <div className="no-reviews"> No reviews yet. </div>;
     return (
         (userDetail.length > 0 && <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.9)', padding: '40px 40px 40px 40px', width: '100%', minHeight: '100vh' }}>
             <br />
@@ -209,26 +152,28 @@ export default function MovieDetails() {
                     {<div className="rr-title">Reviews</div>}
                     {
                         (
-                            movieDetail.reviews.map((ele, ind) => (
-                                ele.email !== emailId && (
-                                    <div key={ind} className="review-list">
-                                        <div className="review-list-element">
-                                            <span className="movie-detail-title review-list-element"> User  :</span> {ele.name}
+                            !(movieDetail.reviews.length === 1 & movieDetail.reviews.findIndex(ele => ele.email === emailId) === 0) ?
+                                movieDetail.reviews.map((ele, ind) => (
+                                    ele.email !== emailId && (
+                                        <div key={ind} className="review-list">
+                                            <div className="review-list-element">
+                                                <span className="movie-detail-title review-list-element"> User  :</span> {ele.name}
+                                            </div>
+                                            <div className="review-list-element">
+                                                <span className="movie-detail-title"> User rating  : </span> {Array.from({ length: ele.rating }, (_, starIndex) => (
+                                                    <span key={starIndex}>⭐️</span>
+                                                ))}
+                                            </div>
+                                            <div className="review-data">{ele.review} </div>
                                         </div>
-                                        <div className="review-list-element">
-                                            <span className="movie-detail-title"> User rating  : </span> {Array.from({ length: ele.rating }, (_, starIndex) => (
-                                                <span key={starIndex}>⭐️</span>
-                                            ))}
-                                        </div>
-                                        <div className="review-data">{ele.review} </div>
-                                    </div>
-                                )
-                            ))
+                                    )
+                                )) : <div className="user-reviews" >
+                                    {noReviewsTag}
+                                </div>
                         )
-
                     }
                 </div> : <div className="user-reviews" > <div className="rr-title">Reviews</div>
-                   <div className="no-reviews"> No reviews yet. </div>
+                {noReviewsTag}
                 </div>}
         </div >)
     )

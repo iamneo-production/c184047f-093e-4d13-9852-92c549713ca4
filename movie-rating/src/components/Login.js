@@ -69,7 +69,7 @@ import { useNavigate } from 'react-router-dom';
                 <input type='password' id='password-element' className='login-input-element' onChange={formikForm.handleChange} onBlur={formikForm.handleBlur}
                     name='password' onPaste={(event) => { event.preventDefault() }} value={formikForm.values.password}
                     placeholder='password' >
-                </input><i id='show-password' className={formikForm.values.password.length > 0 && passwordVisisblity ? 'bi bi-eye-slash-fill' : 'bi bi-eye-fill'}
+                </input><i style={{cursor:'pointer'}} id='show-password' className={formikForm.values.password.length > 0 && passwordVisisblity ? 'bi bi-eye-slash-fill' : 'bi bi-eye-fill'}
                     onMouseUp={() => { handlePasswordVisiblity(false) }} onMouseDown={() => { handlePasswordVisiblity(true) }}></i>
                 <div className={formikForm.touched.password && formikForm.errors.password ? 'login-error-message' : ''}>{formikForm.touched.password && formikForm.errors.password ? formikForm.errors.password : ''}</div><br />
                 <button type='submit' className='button-class submit-button login-submit'>Submit</button> <br />
