@@ -37,6 +37,6 @@ export default function Header({ credentialHandle }) {
     </div> :
         <div className="header-container">
             <div className='header-title-login' onClick={() => { navigate('/') }}>MovieReview</div>
-            {location.pathname !== '/login' && <div className='login-area' onClick={() => { navigate('/login') }} >Login</div>}
+            {location.pathname === '/' && <div className='login-area' onClick={() => { navigate('/login') }} >Login</div>}
         </div>)
 }
