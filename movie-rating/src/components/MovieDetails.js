@@ -25,9 +25,8 @@ export default function MovieDetails() {
                 email: emailId,
                 rating: userRating,
                 review: (userReview)
-            }; console.log('hi')
+            };
             movieDetail.reviews.push(userReviewData)
-            console.log(movieDetail.reviews)
         } else if (feedback.userAlreadyRated === true && movieDetail.reviews.length > 0) {
             movieDetail.reviews.forEach(ele => {
                 if (ele.email === emailId) {
@@ -36,7 +35,6 @@ export default function MovieDetails() {
                 }
             })
         };
-        console.log(movieDetail.reviews)
         if (movieDetail.reviews.length > 0) {
             let totalRatingVal = 0;
             movieDetail.reviews.forEach(ele => {
@@ -69,7 +67,7 @@ export default function MovieDetails() {
         }
         )();
     }, [id, userDetail, emailId]);
- const noReviewsTag = <div className="no-reviews"> No reviews yet. </div>;
+    const noReviewsTag = <div className="no-reviews"> No reviews yet. </div>;
     return (
         (userDetail.length > 0 && <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.9)', padding: '40px 40px 40px 40px', width: '100%', minHeight: '100vh' }}>
             <br />
@@ -130,7 +128,11 @@ export default function MovieDetails() {
                                     userFeedbackFlag: true
                                 }));
                             }}>Cancel</button>}
-                            <button className=" button-class submit-button" onClick={submitReview}>{feedback.userAlreadyRated === false ? 'Submit' : 'Update'}</button>
+                            <button className=" button-class submit-button" onClick={() => {
+                                if (userReview.length > 0) {
+                                    submitReview();
+                                }
+                            }}>{feedback.userAlreadyRated === false ? 'Submit' : 'Update'}</button>
                         </div>
                     </>) : (
                     <div className="rating-review-view-section">

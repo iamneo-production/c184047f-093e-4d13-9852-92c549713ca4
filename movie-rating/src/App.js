@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       {<Header credentialHandle={credentialHandle}></Header>}
-      <Routes>{console.log(emailId)}
+      <Routes>
         <Route path="/" element={<Movies />}></Route>
         <Route path="/movies/:id/reviews" element={emailId && emailId.length > 0 ? <MovieDetails /> : <Loginpage />}></Route>
         <Route path="/login" element={<Loginpage />}></Route>
