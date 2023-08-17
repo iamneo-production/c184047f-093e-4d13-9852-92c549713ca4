@@ -64,13 +64,19 @@
       "imagePath": "omg.jpg",
       "year": 2008,
       "synopsis": "When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
-      "rating": 5,
+      "rating": 4.5,
       "reviews": [
         {
           "name": "balajimurali",
           "email": "balajimurali1999@gmail.com",
           "rating": 5,
           "review": "Good movie"
+        },
+        {
+          "name": "thammayya",
+          "email": "thammayyaarava789@gmail.com",
+          "rating": 4,
+          "review": "decent and comedy movie"
         }
       ]
     },
@@ -145,7 +151,7 @@
     },
     {
       "id": 10,
-      "title": "Lord of the Rings",
+      "title": "Lord Rings",
       "genre": "Fantasy",
       "imagePath": "lordofrings.jpg",
       "year": 2001,
@@ -155,7 +161,7 @@
     },
     {
       "id": 11,
-      "title": "The Knight Rises",
+      "title": "Dark Knight",
       "genre": "Action",
       "imagePath": "darkknightrise.jpg",
       "year": 2023,
