@@ -4,11 +4,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getUserDetails } from "../redux/UserReducer";
 import '../App.css'
 
-export default function Header() {
+export default function Header({ credentialHandle }) {
     const navigate = useNavigate();
     const location = useLocation();
     const dispatch = useDispatch();
-    const emailId = localStorage.getItem('emailId');
+    let emailId = localStorage.getItem('emailId');
     const [userName, setUserName] = useState(null);
     const usersDetails = useSelector((state) => state.user.user);
     useEffect
@@ -19,17 +19,18 @@ export default function Header() {
                 if (emailId && emailId.length > 0 && usersDetails) {
                     const userNameData = usersDetails.find(ele => ele.email === emailId);
                     setUserName(userNameData.name);
+                     credentialHandle(userNameData.email);
                 }
             }
-        }, [usersDetails, dispatch, emailId]);
-    console.log(location)
+        }, [usersDetails, dispatch, emailId, credentialHandle]);
     return (userName && userName.length > 0 ? <div className="header-container">
         <div className='user-area'> Hi {userName}</div>
         <div className='header-title' onClick={() => { navigate('/') }}>MovieReview</div>
         <div className='logout' onClick={() => {
             localStorage.clear();
             setUserName(null);
-            if(location.pathname !== '/') {
+            credentialHandle('')
+            if (location.pathname !== '/') {
                 navigate('/login')
             }
         }}>Logout</div>
